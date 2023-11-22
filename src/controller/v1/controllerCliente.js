@@ -12,7 +12,7 @@ const getClient = async(req,res)=>{
         })
     }catch(e){
         console.log(`Error en la conexión con la base de datos => ${e.message}`);
-        res.status(500).send('Error en el servidor');
+        res.status(500).send({"message:": "Error en el servidor"});
     }
 } 
 
@@ -29,8 +29,26 @@ const postClient = async(req,res)=>{
         })
     }catch(e){
         console.log(`Error en la conexión con la base de datos => ${e.message}`);
-        res.status(500).send('Error en el servidor');
+        res.status(500).send({"message:": "Error en el servidor"});
+    }
+}
+
+const deleteClient = async(req,res)=>{
+    try{
+        let {id} = req.params;
+        id = parseInt(id);
+        database.query("DELETE FROM CLIENTE WHERE id = ?", 
+        [id],
+        (err,data,fil)=>{
+            if(err){
+                res.send(err.message)
+            }
+            res.send(JSON.stringify(data))
+        })
+    }catch(e){
+        console.log(`Error en la conexión con la base de datos => ${e.message}`);
+        res.status(500).send({"message:": "Error en el servidor"});
     }
 } 
 
-export {getClient, postClient};
+export {getClient, postClient, deleteClient};
