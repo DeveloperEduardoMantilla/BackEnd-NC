@@ -3,15 +3,20 @@
 
 #### EndPoints - NC 
 
-1. Lista de clientes
-2. Listar cuentas disponibles
-3. Listar servicios
-4. Listar ventas
-5. Listar los clientes que no han pagado
-6. Listar los clientes que se vence el servicio el dia de hoy 
-7. Listar los cliente que deben no han dado respuesta del servicio 
-8. Filtrar las ventas por el id de un cliente
-9. Filtrar las ventas por proveedor 
-10. Filtrar las ventas por vendedor 
-11. Filtrar las ventas por servicios
-12. Mostrar la cantidad de servicios vendidos por cada plataforma
+* CRUD CLIENTE
+* CRUD VENTA
+* CRUD VENDEDOR
+* CRUD SERVICIO
+* CRUD CUENTA
+* CRUD PROVEEDOR
+* Listar los cliente que no han pagado el servicio.
+* Mostrar los clientes que se les vence el servicio el dia de hoy.
+* Mostrar los ventas que se le cumple el servicio en un rango de dias especifico hacia adelante.
+* Mostrar los clientes que se les cobro pero no han dado respuesta del servicio.
+* Mostrar las ventas filtradas por el nombre del cliente.
+* Mostrar las cuentas que se adquirieron filtradas.
+* Mostrar las ventas filtradas por un proveedor.
+* Mostrar las ventas filtradas por servicio.
+* Mostrar la cantidad de servicios vendidos por cada plataforma.
+* Mostrar el total de compras realizadas por un cliente || filtrado por un cliente.
+* Mostrar las ventas realizadas filtrado por el nombre de un cliente.
