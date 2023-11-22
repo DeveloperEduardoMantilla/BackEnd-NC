@@ -1,7 +1,11 @@
-import {getClient} from "../controller/v1/controller.js";
+import {getClient, postClient} from "../controller/v1/controller.js";
 
 let getClientes = {
     "1.0.0": getClient
 }
 
-export {getClientes}
+let addCliente  = {
+    "1.0.0" : postClient
+}
+
+export {getClientes, addCliente}
