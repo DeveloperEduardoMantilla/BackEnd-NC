@@ -14,26 +14,25 @@ CRUD CLIENTE
     DELETE - http://127.0.0.1:1357/cliente/:id
 ```
 ```Js
-    POST - http://127.0.0.1:1357/cliente/
-           
+    POST - http://127.0.0.1:1357/cliente/     
     body{
-            "nombre":"Stiven Amigo Maria Jose",
-            "telefono":"3167967956",
-            "comoLlego":"Eduardo",
-            "descripcion":"HolaMundo"
-        }
+        "nombre":"Stiven Amigo Maria Jose",
+        "telefono":"3167967956",
+        "comoLlego":"Eduardo",
+        "descripcion":"HolaMundo"
+    }
 ```
 ```Js
-PUT - http://127.0.0.1:1357/cliente 
-            body{
-                "id":"8",
-                "nombre":"Stiven Amigo Maria Jose",
-                "telefono":"3167967956",
-                "comoLlego":"Eduardo",
-                "descripcion":"HolaMundo"
-            }
+    PUT - http://127.0.0.1:1357/cliente 
+    body{
+        "id":"8",
+        "nombre":"Stiven Amigo Maria Jose",
+        "telefono":"3167967956",
+        "comoLlego":"Eduardo",
+        "descripcion":"HolaMundo"
+    }
 ```
-* CRUD VENTA
+CRUD VENTA
 ```Js
     Get - http://127.0.0.1:1357/ventas/
 ```
@@ -41,8 +40,7 @@ PUT - http://127.0.0.1:1357/cliente
     DELETE - http://127.0.0.1:1357/venta/:id
 ```
 ```Js
-    POST - http://127.0.0.1:1357/venta/
-           
+    POST - http://127.0.0.1:1357/venta/   
     body{
         "id":7,
         "idCliente": 1,
@@ -61,25 +59,25 @@ PUT - http://127.0.0.1:1357/cliente
     }
 ```
 ```Js
-PUT - http://127.0.0.1:1357/venta 
-        body{
-            "idCliente": 1,
-            "perfil": "Ana Karina",
-            "contraseniaPerfil": "1010",
-            "idCuenta": 1,
-            "idVendedor": 1,
-            "tiempo": 60,
-            "fechaCompra": "16/10/2023",
-            "fechaCorte": "15/12/2023",
-            "costo": "12",
-            "pago": 1,
-            "descripcion": "",
-            "cantRenovacion": "10",
-            "estadoVenta": "Activo"
-        }
+    PUT - http://127.0.0.1:1357/venta 
+    body{
+        "idCliente": 1,
+        "perfil": "Ana Karina",
+        "contraseniaPerfil": "1010",
+        "idCuenta": 1,
+        "idVendedor": 1,
+        "tiempo": 60,
+        "fechaCompra": "16/10/2023",
+        "fechaCorte": "15/12/2023",
+        "costo": "12",
+        "pago": 1,
+        "descripcion": "",
+        "cantRenovacion": "10",
+        "estadoVenta": "Activo"
+    }
 ```
 
-* CRUD VENDEDOR
+CRUD VENDEDOR
 ```Js
     Get - http://127.0.0.1:1357/vendedores/
 ```
@@ -87,8 +85,7 @@ PUT - http://127.0.0.1:1357/venta
     DELETE - http://127.0.0.1:1357/vendedor/:id
 ```
 ```Js
-    POST - http://127.0.0.1:1357/vendedor/
-           
+    POST - http://127.0.0.1:1357/vendedor/      
     body{
         "nombre": "Andres",
         "telefono": "321",
@@ -96,17 +93,72 @@ PUT - http://127.0.0.1:1357/venta
     }
 ```
 ```Js
-PUT - http://127.0.0.1:1357/vendedor 
-        body{
+    PUT - http://127.0.0.1:1357/vendedor 
+    body{
         "id":"7",
         "nombre": "Andres",
         "telefono": "321",
         "descripcion": "xd"
     }
 ```
-* CRUD SERVICIO
-* CRUD CUENTA
+CRUD SERVICIO
+```Js
+    Get - http://127.0.0.1:1357/servicios/
+```
+```Js
+    DELETE - http://127.0.0.1:1357/servicio/:id
+```
+```Js
+    POST - http://127.0.0.1:1357/servicio/   
+    body{
+        "nombre": "Lalala",
+        "descripcion": "123"
+    }
+```
+```Js
+    PUT - http://127.0.0.1:1357/servicio 
+    body{
+        "id":9,
+        "nombre": "Lalala",
+        "descripcion": "123"
+    }
+```
+
+CRUD CUENTA
+
+```Js
+    Get - http://127.0.0.1:1357/cuentas/
+```
+```Js
+    DELETE - http://127.0.0.1:1357/cuenta/:id
+```
+```Js
+    POST - http://127.0.0.1:1357/cuenta/    
+    body{
+        "idServicio": 1,
+        "correo": "camata3",
+        "contrasenia": "asda",
+        "fechaCompra": "aasdsad3",
+        "fechaPago": "asdad",
+        "idProveedor": 1,
+        "descripcion": ""
+    }
+```
+```Js
+    PUT - http://127.0.0.1:1357/cuenta 
+    body{
+        "idServicio": 1,
+        "correo": "camata3",
+        "contrasenia": "asda",
+        "fechaCompra": "aasdsad3",
+        "fechaPago": "asdad",
+        "idProveedor": 1,
+        "descripcion": ""
+    }
+```
 * CRUD PROVEEDOR
+
+
 * Listar los cliente que no han pagado el servicio.
 * Mostrar los clientes que se les vence el servicio el dia de hoy.
 * Mostrar los ventas que se le cumple el servicio en un rango de dias especifico hacia adelante.
