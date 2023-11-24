@@ -80,6 +80,30 @@ PUT - http://127.0.0.1:1357/venta
 ```
 
 * CRUD VENDEDOR
+```Js
+    Get - http://127.0.0.1:1357/vendedores/
+```
+```Js
+    DELETE - http://127.0.0.1:1357/vendedor/:id
+```
+```Js
+    POST - http://127.0.0.1:1357/vendedor/
+           
+    body{
+        "nombre": "Andres",
+        "telefono": "321",
+        "descripcion": "xd"
+    }
+```
+```Js
+PUT - http://127.0.0.1:1357/vendedor 
+        body{
+        "id":"7",
+        "nombre": "Andres",
+        "telefono": "321",
+        "descripcion": "xd"
+    }
+```
 * CRUD SERVICIO
 * CRUD CUENTA
 * CRUD PROVEEDOR
@@ -94,3 +118,5 @@ PUT - http://127.0.0.1:1357/venta
 * Mostrar la cantidad de servicios vendidos por cada plataforma.
 * Mostrar el total de compras realizadas por un cliente || filtrado por un cliente.
 * Mostrar las ventas realizadas filtrado por el nombre de un cliente.
+* Servicios disponibles por categoria
+* Mostrar las ganancias filtrado por mes año dia 
