@@ -2,9 +2,9 @@ import connectToDatabase from "../../config/connection.js";
 
 const database = await connectToDatabase();
 
-const getClient = async(req,res)=>{
+const getSupplier = async(req,res)=>{
     try{
-        database.query("SELECT * FROM CLIENTE", (err,data,fil)=>{
+        database.query("SELECT * FROM PROVEEDOR", (err,data,fil)=>{
             if(err){
                 res.send(err.message)
             }
@@ -16,11 +16,11 @@ const getClient = async(req,res)=>{
     }
 } 
 
-const postClient = async(req,res)=>{
+const postSupplier = async(req,res)=>{
     try{
-        let { nombre, telefono, comoLlego, descripcion } = req.body;
-        database.query("INSERT INTO CLIENTE (nombre,telefono, comoLlego, descripcion) VALUES (?,?,?,?)", 
-        [nombre, telefono, comoLlego, descripcion],
+        let { nombre, telefono, descripcion } = req.body;
+        database.query("INSERT INTO PROVEEDOR (nombre,telefono, descripcion) VALUES (?,?,?)", 
+        [nombre, telefono, descripcion],
         (err,data,fil)=>{
             if(err){
                 res.send(err.message)
@@ -33,11 +33,11 @@ const postClient = async(req,res)=>{
     }
 }
 
-const deleteClient = async(req,res)=>{
+const deleteSupplier = async(req,res)=>{
     try{
         let {id} = req.params;
         id = parseInt(id);
-        database.query("DELETE FROM CLIENTE WHERE id = ?", 
+        database.query("DELETE FROM PROVEEDOR WHERE id = ?", 
         [id],
         (err,data,fil)=>{
             if(err){
@@ -51,13 +51,13 @@ const deleteClient = async(req,res)=>{
     }
 } 
 
-const updateClient = async(req,res)=>{
+const updateSupplier = async(req,res)=>{
     try{
-        let {id,nombre,telefono,comoLlego, descripcion} = req.body;
+        let {id,nombre,telefono, descripcion} = req.body;
         if(id!=null && !isNaN(id)){
             id = parseInt(id);
-            database.query("UPDATE CLIENTE SET nombre=?,telefono=?,comoLlego=?,descripcion=? WHERE id=?", 
-            [nombre,telefono,comoLlego, descripcion,id],
+            database.query("UPDATE PROVEEDOR SET nombre=?,telefono=?,descripcion=? WHERE id=?", 
+            [nombre,telefono, descripcion,id],
             (err,data,fil)=>{
                 if(err){
                     res.send(err.message)
@@ -65,7 +65,7 @@ const updateClient = async(req,res)=>{
                 res.send(JSON.stringify(data))
             })
         }else{
-            res.send({message:'Se necesita de un id para la actualizacion del cliente'})
+            res.send({message:'Se necesita de un id para la actualizacion del proveedor'})
         }
         
     }catch(e){
@@ -74,4 +74,4 @@ const updateClient = async(req,res)=>{
     }
 } 
 
-export {getClient, postClient, deleteClient, updateClient};
+export {getSupplier, postSupplier, deleteSupplier, updateSupplier};

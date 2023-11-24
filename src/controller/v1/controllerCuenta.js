@@ -66,7 +66,7 @@ const updateAccount = async(req,res)=>{
                 res.send(JSON.stringify(data))
             })
         }else{
-            res.send({message:'Se necesita de un id para la actualizacion del vendedor'})
+            res.send({message:'Se necesita de un id para la actualizacion de la cuenta'})
         }
         
     }catch(e){

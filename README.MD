@@ -156,7 +156,32 @@ CRUD CUENTA
         "descripcion": ""
     }
 ```
-* CRUD PROVEEDOR
+
+CRUD PROVEEDOR
+
+```Js
+    Get - http://127.0.0.1:1357/proveedores/
+```
+```Js
+    DELETE - http://127.0.0.1:1357/proveedor/:id
+```
+```Js
+    POST - http://127.0.0.1:1357/proveedor/    
+    body{
+        "nombre": "asdad",
+        "telefono": "qweqwe13212",
+        "descripcion": "asdasd"
+    }
+```
+```Js
+    PUT - http://127.0.0.1:1357/proveedor 
+    body{
+        "id":4,
+        "nombre": "asdad",
+        "telefono": "qweqwe13212",
+        "descripcion": "asdasd"
+    }
+```
 
 
 * Listar los cliente que no han pagado el servicio.

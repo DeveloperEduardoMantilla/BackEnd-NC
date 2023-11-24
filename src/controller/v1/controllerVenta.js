@@ -65,7 +65,7 @@ const updateVenta = async(req,res)=>{
                 res.send(JSON.stringify(data))
             })
         }else{
-            res.send({message:'Se necesita de un id para la actualizacion del usuario'})
+            res.send({message:'Se necesita de un id para la actualizacion de la venta'})
         }
         
     }catch(e){
