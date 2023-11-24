@@ -51,4 +51,27 @@ const deleteClient = async(req,res)=>{
     }
 } 
 
-export {getClient, postClient, deleteClient};
+const updateClient = async(req,res)=>{
+    try{
+        let {id,nombre,telefono,comoLlego, descripcion} = req.body;
+        if(id!=null && !isNaN(id)){
+            id = parseInt(id);
+            database.query("UPDATE CLIENTE SET nombre=?,telefono=?,comoLlego=?,descripcion=? WHERE id=?", 
+            [nombre,telefono,comoLlego, descripcion,id],
+            (err,data,fil)=>{
+                if(err){
+                    res.send(err.message)
+                }
+                res.send(JSON.stringify(data))
+            })
+        }else{
+            res.send({message:'Se necesita de un id para la actualizacion del usuario'})
+        }
+        
+    }catch(e){
+        console.log(`Error en la conexión con la base de datos => ${e.message}`);
+        res.status(500).send({"message:": "Error en el servidor"});
+    }
+} 
+
+export {getClient, postClient, deleteClient, updateClient};
