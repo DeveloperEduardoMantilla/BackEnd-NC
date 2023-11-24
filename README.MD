@@ -1,10 +1,84 @@
-## Proyecto personal - NC - BackEnd
+<img src="./assets/img/fondo.jpg" height="100px" width="100%"/>
 
+#### Proyecto personal - NC - BackEnd
 
-#### EndPoints - NC 
+ EndPoints - NC 
 
-* CRUD CLIENTE
+<hr> 
+
+CRUD CLIENTE
+```Js
+    Get - http://127.0.0.1:1357/clientes/
+```
+```Js
+    DELETE - http://127.0.0.1:1357/cliente/:id
+```
+```Js
+    POST - http://127.0.0.1:1357/cliente/
+           
+    body{
+            "nombre":"Stiven Amigo Maria Jose",
+            "telefono":"3167967956",
+            "comoLlego":"Eduardo",
+            "descripcion":"HolaMundo"
+        }
+```
+```Js
+PUT - http://127.0.0.1:1357/cliente 
+            body{
+                "id":"8",
+                "nombre":"Stiven Amigo Maria Jose",
+                "telefono":"3167967956",
+                "comoLlego":"Eduardo",
+                "descripcion":"HolaMundo"
+            }
+```
 * CRUD VENTA
+```Js
+    Get - http://127.0.0.1:1357/ventas/
+```
+```Js
+    DELETE - http://127.0.0.1:1357/venta/:id
+```
+```Js
+    POST - http://127.0.0.1:1357/venta/
+           
+    body{
+        "id":7,
+        "idCliente": 1,
+        "perfil": "Ana Karina",
+        "contraseniaPerfil": "1010",
+        "idCuenta": 1,
+        "idVendedor": 1,
+        "tiempo": 60,
+        "fechaCompra": "16/10/2023",
+        "fechaCorte": "15/12/2023",
+        "costo": "12",
+        "pago": 1,
+        "descripcion": "",
+        "cantRenovacion": "10",
+        "estadoVenta": "Activo"
+    }
+```
+```Js
+PUT - http://127.0.0.1:1357/venta 
+        body{
+            "idCliente": 1,
+            "perfil": "Ana Karina",
+            "contraseniaPerfil": "1010",
+            "idCuenta": 1,
+            "idVendedor": 1,
+            "tiempo": 60,
+            "fechaCompra": "16/10/2023",
+            "fechaCorte": "15/12/2023",
+            "costo": "12",
+            "pago": 1,
+            "descripcion": "",
+            "cantRenovacion": "10",
+            "estadoVenta": "Activo"
+        }
+```
+
 * CRUD VENDEDOR
 * CRUD SERVICIO
 * CRUD CUENTA
