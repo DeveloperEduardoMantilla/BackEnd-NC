@@ -183,17 +183,50 @@ CRUD PROVEEDOR
     }
 ```
 
+Listar los cliente que no han pagado el servicio.
 
-* Listar los cliente que no han pagado el servicio.
-* Mostrar los clientes que se les vence el servicio el dia de hoy.
+```SQL
+SELECT venta.id as idVenta, cliente.nombre as cliente, servicio.nombre as servicio, venta.perfil as perfil, venta.contraseniaPerfil as passwordPerfil, cuenta.correo as correo, vendedor.nombre as vendedor, venta.tiempo, venta.fechaCompra, venta.fechaCorte, venta.costo, venta.pago, venta.descripcion, venta.cantRenovacion, venta.estadoVenta FROM VENTA INNER JOIN cliente on cliente.id=venta.idCliente INNER JOIN cuenta on venta.idCuenta=cuenta.id INNER JOIN VENDEDOR ON vendedor.id=cuenta.id INNER JOIN SERVICIO ON servicio.id=cuenta.idServicio WHERE PAGO="No" 
+```
+
+Mostrar los clientes que se les vence el servicio el dia de hoy.
+
+```SQL
+SELECT venta.id as idVenta, cliente.nombre as cliente, servicio.nombre as servicio, venta.perfil as perfil, venta.contraseniaPerfil as passwordPerfil, cuenta.correo as correo, vendedor.nombre as vendedor, venta.tiempo, venta.fechaCompra, venta.fechaCorte, venta.costo, venta.pago, venta.descripcion, venta.cantRenovacion, venta.estadoVenta FROM VENTA INNER JOIN cliente on cliente.id=venta.idCliente INNER JOIN cuenta on venta.idCuenta=cuenta.id INNER JOIN VENDEDOR ON vendedor.id=cuenta.id INNER JOIN SERVICIO ON servicio.id=cuenta.idServicio WHERE fechaCorte="24/12/2023";
+```
+
 * Mostrar los ventas que se le cumple el servicio en un rango de dias especifico hacia adelante.
+
+```SQL
+SELECT venta.id as idVenta, cliente.nombre as cliente, servicio.nombre as servicio, venta.perfil as perfil, venta.contraseniaPerfil as passwordPerfil, cuenta.correo as correo, vendedor.nombre as vendedor, venta.tiempo, venta.fechaCompra, venta.fechaCorte, venta.costo, venta.pago, venta.descripcion, venta.cantRenovacion, venta.estadoVenta FROM VENTA INNER JOIN cliente on cliente.id=venta.idCliente INNER JOIN cuenta on venta.idCuenta=cuenta.id INNER JOIN VENDEDOR ON vendedor.id=cuenta.id INNER JOIN SERVICIO ON servicio.id=cuenta.idServicio WHERE fechaCorte BETWEEN "17/01/2023" AND "30/12/2023" 
+``` 
+
 * Mostrar los clientes que se les cobro pero no han dado respuesta del servicio.
+
 * Mostrar las ventas filtradas por el nombre del cliente.
-* Mostrar las cuentas que se adquirieron filtradas.
+```SQL
+SELECT venta.id as idVenta, cliente.nombre as cliente, servicio.nombre as servicio, venta.perfil as perfil, venta.contraseniaPerfil as passwordPerfil, cuenta.correo as correo, vendedor.nombre as vendedor, venta.tiempo, venta.fechaCompra, venta.fechaCorte, venta.costo, venta.pago, venta.descripcion, venta.cantRenovacion, venta.estadoVenta FROM VENTA INNER JOIN cliente on cliente.id=venta.idCliente INNER JOIN cuenta on venta.idCuenta=cuenta.id INNER JOIN VENDEDOR ON vendedor.id=cuenta.id INNER JOIN SERVICIO ON servicio.id=cuenta.idServicio WHERE cliente.nombre LIKE  "%A%"  
+``` 
+
+* Mostrar la cantidad de cuentas vendidas.
+
+```SQL
+SELECT servicio.nombre as servicio, COUNT(*) as cantidad
+FROM VENTA 
+INNER JOIN cliente ON cliente.id = venta.idCliente 
+INNER JOIN cuenta ON venta.idCuenta = cuenta.id 
+INNER JOIN VENDEDOR ON vendedor.id = cuenta.id 
+INNER JOIN SERVICIO ON servicio.id = cuenta.idServicio 
+GROUP BY servicio.nombre;
+```
 * Mostrar las ventas filtradas por un proveedor.
+```SQL
+SELECT venta.id as idVenta, proveedor.nombre as proveedor, cliente.nombre as cliente, servicio.nombre as servicio, venta.perfil as perfil, venta.contraseniaPerfil as passwordPerfil, cuenta.correo as correo, vendedor.nombre as vendedor, venta.tiempo, venta.fechaCompra, venta.fechaCorte, venta.costo, venta.pago, venta.descripcion, venta.cantRenovacion, venta.estadoVenta FROM VENTA INNER JOIN cliente on cliente.id=venta.idCliente INNER JOIN cuenta on venta.idCuenta=cuenta.id INNER JOIN VENDEDOR ON vendedor.id=cuenta.id INNER JOIN SERVICIO ON servicio.id=cuenta.idServicio  INNER JOIN PROVEEDOR ON PROVEEDOR.ID=CUENTA.idProveedor where proveedor.nombre like '%MARKETPLACE%'
+```
 * Mostrar las ventas filtradas por servicio.
 * Mostrar la cantidad de servicios vendidos por cada plataforma.
 * Mostrar el total de compras realizadas por un cliente || filtrado por un cliente.
 * Mostrar las ventas realizadas filtrado por el nombre de un cliente.
 * Servicios disponibles por categoria
 * Mostrar las ganancias filtrado por mes año dia 
+* Cuentas proximas a renovar
