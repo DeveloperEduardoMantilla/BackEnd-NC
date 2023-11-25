@@ -3,7 +3,7 @@ import rateLimit from "express-rate-limit";
 export let limitApi = () =>{
     return rateLimit({
         windowMs: 30 * 1000,
-        max: 5,
+        max: 15,
         standardHeaders: true, 
         legacyHeaders: false, 
         message: (req,res)=>{
