@@ -1,4 +1,4 @@
-<img src="./assets/img/fondo.jpg" height="100px" width="100%"/>
+<img src="./server/assets/img/fondo.jpg" height="100px" width="100%"/>
 
 #### Proyecto personal - NC - BackEnd
 
